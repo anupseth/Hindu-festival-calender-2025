@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu Festival Calendar 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3e0;
+            color: #5e2d00;
+            text-align: center;
+        }
+        .banner {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .calendar {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ff9800;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #ffcc80;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner" class="banner">Loading upcoming festival...</div>
+    <h1>Hindu Festival Calendar 2025</h1>
+    <table class="calendar">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Festival</th>
+            </tr>
+        </thead>
+        <tbody id="festival-list">
+        </tbody>
+    </table>
+    <script>
+        const festivals = [
+            { date: "2025-01-06", name: "Guru Gobind Singh Jayanti" },
+            { date: "2025-01-10", name: "Tailang Swami Jayanti" },
+            { date: "2025-01-12", name: "Swami Vivekananda Jayanti" },
+            { date: "2025-01-13", name: "Lohri" },
+            { date: "2025-01-14", name: "Makar Sankranti" },
+            { date: "2025-01-14", name: "Pongal" },
+            { date: "2025-01-21", name: "Vivekananda Jayanti (Samvat)" },
+            { date: "2025-01-23", name: "Subhas Chandra Bose Jayanti" },
+            { date: "2025-01-26", name: "Republic Day" },
+            { date: "2025-01-30", name: "Gandhi Punyatithi" },
+            { date: "2025-02-02", name: "Vasant Panchami" },
+            { date: "2025-02-12", name: "Guru Ravidas Jayanti" },
+            { date: "2025-02-26", name: "Maha Shivaratri" },
+            { date: "2025-03-01", name: "Ramakrishna Jayanti" },
+            { date: "2025-03-13", name: "Holika Dahan" },
+            { date: "2025-03-14", name: "Chaitanya Mahaprabhu Jayanti" },
+            { date: "2025-03-14", name: "Holi" },
+            { date: "2025-03-17", name: "Chhatrapati Shivaji Maharaj Jayanti" },
+            { date: "2025-03-30", name: "Ugadi" },
+            { date: "2025-03-30", name: "Gudi Padwa" },
+            { date: "2025-03-30", name: "Jhulelal Jayanti" },
+            { date: "2025-04-06", name: "Rama Navami" },
+            { date: "2025-04-10", name: "Mahavir Swami Jayanti" },
+            { date: "2025-04-14", name: "Solar New Year" },
+            { date: "2025-04-14", name: "Ambedkar Jayanti" },
+            { date: "2025-04-14", name: "Baisakhi" },
+            { date: "2025-04-24", name: "Vallabhacharya Jayanti" },
+            { date: "2025-05-02", name: "Shankaracharya Jayanti" },
+            { date: "2025-05-02", name: "Surdas Jayanti" },
+            { date: "2025-05-12", name: "Buddha Purnima" },
+            { date: "2025-05-29", name: "Maharana Pratap Jayanti" },
+            { date: "2025-06-11", name: "Kabirdas Jayanti" },
+            { date: "2025-06-27", name: "Jagannath Rathyatra" },
+            { date: "2025-07-10", name: "Guru Purnima" },
+            { date: "2025-07-31", name: "Tulsidas Jayanti" },
+            { date: "2025-08-09", name: "Raksha Bandhan" },
+            { date: "2025-08-15", name: "Janmashtami (Smarta)" },
+            { date: "2025-08-15", name: "Independence Day" },
+            { date: "2025-08-16", name: "Janmashtami (ISKCON)" },
+            { date: "2025-08-27", name: "Ganesh Chaturthi" },
+            { date: "2025-10-20", name: "Diwali" },
+            { date: "2025-10-27", name: "Chhath Puja" }
+        ];
+
+        function renderCalendar() {
+            const tableBody = document.getElementById("festival-list");
+            festivals.forEach(festival => {
+                let row = `<tr><td>${festival.date}</td><td>${festival.name}</td></tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function highlightUpcomingFestival() {
+            const today = new Date();
+            const upcoming = festivals.find(festival => new Date(festival.date) >= today);
+            document.getElementById("banner").innerText = upcoming ? `Upcoming Festival: ${upcoming.name} on ${upcoming.date}` : "No upcoming festivals";
+        }
+
+        renderCalendar();
+        highlightUpcomingFestival();
+    </script>
+</body>
+</html>
